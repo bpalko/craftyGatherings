@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "name": "Groomsman Stickers",
+    "type": "stickers",
+    "images": [
+      "/static/stickers1.jpg"
+    ],
+    "etsy_url": "https://craftygatherings.etsy.com/listing/1698813923/personalized-groomsman-whiskey-bottle",
+    "description": "A set of 10 high-quality stickers featuring Groosman designs. Perfect for decorating your laptop, water bottle, or journal."
+  },
+  {
+    "id": "2",
+    "name": "Custom Card Book",
+    "images": [
+      "/static/stickers2.jpg"
+    ],
+    "etsy_url": "https://craftygatherings.etsy.com/listing/1881377234/custom-kids-artwork-book-mail-in-service",
+    "type": "books",
+    "description": "A beautifully crafted card book with customizable pages. Ideal for storing your favorite cards, notes, or memories."
+  }
+]

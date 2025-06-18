@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crafty Gatherings</title>
+  <link href="/static/styles.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/static/brandLogo.png" type="image/png">
+</head>
+<body class="bg-gray-50">
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <a href="/" class="flex items-center">
+        <img src="/static/brandLogo.png" alt="Crafty Gatherings Logo" class="rounded-lg shadow-md w-16">
+        <span class="ml-4 text-xl font-bold text-gray-800">Crafty Gatherings</span>
+      </a>
+      <nav class="flex space-x-6">
+        <a href="/" class="text-gray-800 hover:text-blue-500 font-medium">Home</a>
+        <a href="/contact" class="text-gray-800 hover:text-blue-500 font-medium">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+ 
+  <!-- Left Column / Product Image Gallery -->
+  <div class="left-column">
+      <div class="main-image">
+          <img src="/static/brandLogo.png" alt="Main Product Image">
+      </div>
+      <div class="thumbnails">
+          <button class="thumbnail active" type="button" aria-pressed="true" aria-label="View Image 1" data-large="/static/brandLogo.png">
+              <img src="/static/brandLogo.png" alt="Thumbnail 1">
+          </button>
+          <button class="thumbnail" type="button" aria-pressed="false" aria-label="View Image 2" data-large="/static/etsyLogo.png">
+              <img src="/static/etsyLogo.png" alt="Thumbnail 2">
+          </button>
+      </div>
+  </div>
+
+  <!-- Right Column -->
+  <div class="right-column">
+
+    <!-- Product Description -->
+    <div class="product-description">
+      <span>{{ .Type }}</span>
+      <h1 class="product-title">{{ .Name }}</h1>
+      <p class="description">{{ .Description }}</p>
+    </div>
+
+    <!-- Product Pricing -->
+    <div class="product-price">
+      <span class="price">148$</span>
+      <a href="{{ .EtsyURL}}" class="cart-btn">Buy On Etsy</a>
+    </div>
+  </div>
+</main>
+
+<script>
+    // Thumbnail click swaps main image
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const mainImage = document.querySelector('.main-image img');
+
+    thumbnails.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active and aria-pressed from all
+        thumbnails.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-pressed', 'false');
+        });
+        // Add active and aria-pressed to clicked
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+        // Change main image src & alt
+        const largeSrc = btn.getAttribute('data-large');
+        mainImage.src = largeSrc;
+
+        // Optionally update alt based on button label
+        mainImage.alt = btn.getAttribute('aria-label').replace('View ', '') + ' Product Image';
+      });
+    });
+  </script>
+</body>
+</html>
