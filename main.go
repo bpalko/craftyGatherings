@@ -29,8 +29,7 @@ func main() {
 	// Start the server
 	http.HandleFunc("/", handlers.HomeHandler)
 	http.HandleFunc("/contact", handlers.ContactHandler)
-	http.HandleFunc("/product", handlers.RedirectHandler)
-	http.HandleFunc("/product/details", handlers.ProductPageHandler)
+	http.HandleFunc("/product/", handlers.ProductPageHandler)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	log.Println("Running on :8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))

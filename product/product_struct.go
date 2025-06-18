@@ -9,4 +9,7 @@ type Product struct {
 	EtsyURL     string   `json:"etsy_url"`
 	Type        string   `json:"type"`
 	Price       string   `json:"price"`
+	Reviews     []string `json:"reviews,omitempty"`
+	LocalURL    string   `json:"local_url"`
+	Related     *Product `json:"-"` // Related products as pointers
 }
